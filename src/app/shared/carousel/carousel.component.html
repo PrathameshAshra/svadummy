@@ -1,0 +1,26 @@
+<section class="carousel-wrapper" >
+  <div class="carousel-inner" [style]="{'transform': styleExp}" >
+    <div *ngFor="let item of items;" id='myIdentifier' class="carousel-item " >
+    <span>{{item}}</span>
+
+    </div>
+  </div>
+</section>
+<!-- <div  class="controls">
+  <div class="prev-container">
+    <img  *ngIf='displayBackButtton' (click)="onPreviousClick()"  src="../../../assets/svg/left-arrow.svg" alt="">
+  </div>
+  <div class="bullet-container">
+    <div  *ngFor="let item of items, let i = index">
+ 
+<div *ngIf='i < 5' [ngClass]="{'activeBullet': currentPosition === i,'inactiveBullet': currentPosition != i}" class="bullets" >
+
+</div>
+    </div>
+  </div>
+  <div class="next-container">
+    <img *ngIf='displayForwardButton' (click)="onNextClick()" src="../../../assets/svg/right-arrow.svg" alt="">
+
+  </div>
+ 
+</div> -->
