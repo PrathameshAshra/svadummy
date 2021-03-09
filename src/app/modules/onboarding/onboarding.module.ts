@@ -1,3 +1,5 @@
+import { LoginComponent } from './views/login/login.component';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OnboardingComponent } from './onboarding.component';
@@ -6,7 +8,8 @@ import { OnboardingRoutes } from './onboarding.routing';
 import { SpashComponent } from './views/spash/spash.component';
 import { SwiperModule } from 'swiper/angular';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -14,8 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     SharedModule,
     OnboardingRoutes,
-    SwiperModule, 
+    SwiperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
-  declarations: [OnboardingComponent, SpashComponent]
+  declarations: [OnboardingComponent, SpashComponent, LoginComponent]
 })
 export class OnboardingModule { }
