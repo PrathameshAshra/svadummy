@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "jmm-sva": {
+      "hosting": {
+        "sva2": [
+          "jmm-sva"
+        ]
+      }
+    }
+  }
+}

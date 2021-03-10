@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row header__row">
+    <h1>Sginup !</h1>
+    <p>This is exciting. Let's get you started.</p>
+    
+  </div>
+  <div class="row body__row">
+    <mat-form-field class="sva-primary-input-field w-100" >
+      <mat-label>Mobile No</mat-label>
+      <input  matInput type="text" >
+    </mat-form-field>
+    <mat-form-field class="sva-primary-input-field w-100" >
+      <mat-label>First Name</mat-label>
+      <input  matInput type="text" >
+    </mat-form-field>
+    
+    <mat-form-field class="sva-primary-input-field w-100" >
+      <mat-label>Last Name</mat-label>
+      <input  matInput type="text" >
+    </mat-form-field>
+ 
+    <mat-form-field class="sva-primary-input-field w-100" >
+      <mat-label>Password </mat-label>
+      <input  matInput type="text" >
+    </mat-form-field>
+    <mat-form-field class="sva-primary-input-field w-100" >
+      <mat-label>Confirm Password</mat-label>
+      <input  matInput type="text" >
+    </mat-form-field>
+    <button mat-flat-button class="sva-primary-btn"color="primary" (click)="sendLoginCode()">Signup</button>
+   
+  </div>
+  <div id="recaptcha-container"></div>
+
+  <div *ngIf="windowRef.confirmationResult">
+    <hr>
+    <label for="code">Enter your Verification Code Here</label><br>
+    <input type="text" name="code" [(ngModel)]="verificationCode">
+
+    <button (click)="verifyLoginCode()">Verify</button>
+  </div>
+  <div *ngIf="user">
+    You have successfully logged in with your phone number!
+  
+    UserId: {{ user?.uid }}
+  
+  </div>
+  </div>

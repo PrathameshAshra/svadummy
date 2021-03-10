@@ -18,7 +18,7 @@ export class SpashComponent implements OnInit {
     pullDrag: true,
     dots: true,
     navSpeed: 400,
-    navText: ['', ''],
+    navText: ['<img src=\'../../../../../assets/svg/DefaultPreviousButton.svg\'>', '<img src=\'../../../../../assets/svg/DefaultNextButton.svg\'>'],
     responsive: {
       0: {
         items: 1
@@ -28,8 +28,6 @@ export class SpashComponent implements OnInit {
       }
     },
     nav: true,
-    
-
   };
 
 

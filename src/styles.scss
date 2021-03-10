@@ -16,8 +16,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$sva2-primary: mat-palette($mat-sva-p,A200, A100, A400);
-$sva2-accent: mat-palette($mat-sva-a, A200, A100, A400);
+$sva2-primary: mat-palette($mat-sva-p);
+$sva2-accent: mat-palette($mat-sva-a);
 
 // The warn palette is optional (defaults to red).
 $sva2-warn: mat-palette($mat-red);
@@ -29,6 +29,7 @@ $sva2-theme: mat-light-theme((
     primary: $sva2-primary,
     accent: $sva2-accent,
     warn: $sva2-warn,
+    orange:#FFEBEB
   )
 ));
 

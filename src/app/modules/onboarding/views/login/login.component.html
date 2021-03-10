@@ -1,10 +1,33 @@
 <div class="container-fluid">
-<div class="row">
+<div class="row header__row">
   <h1>Login</h1>
   <p>Login using your existing account</p>
-  <mat-form-field class="example-form-field" >
-    <mat-label>Clearable input</mat-label>
+  
+</div>
+<div class="row body__row">
+  <mat-form-field class="sva-primary-input-field w-100" >
+    <mat-label>Email or Mobile No</mat-label>
     <input  matInput type="text" >
   </mat-form-field>
+  <mat-form-field class="sva-primary-input-field w-100" >
+    <mat-label>Password</mat-label>
+    <input  matInput type="text" >
+  </mat-form-field>
+  <span class="forgot__password">Forgot Password ? </span>
+  <button mat-flat-button class="sva-primary-btn"color="primary">Login</button>
+  <button mat-flat-button  class="sva-secondary-btn"> 
+  <img src="../../../../../assets/svg/mobile_icon.svg" alt="">
+    Sign in with Mobile Number</button>
+  <button mat-flat-button  class="sva-secondary-btn">
+    <img src="../../../../../assets/svg/email_icon.svg" alt="">
+    Sign in with Email</button>
+  <button mat-flat-button class="sva-secondary-btn"   (click)='loginWithGoogle()' >
+    <img src="../../../../../assets/svg/google_icon.svg" alt="">
+    Sign in with Google</button>
+  <button mat-flat-button class="sva-secondary-btn"  >
+    <img src="../../../../../assets/svg/facebook_icon.svg" alt="">
+    Sign in with Facebook</button>
+<p>By signing up, you agree to our <span>Privacy Policy</span></p>
 </div>
+
 </div>

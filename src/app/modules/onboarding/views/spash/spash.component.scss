@@ -88,14 +88,18 @@
   visibility: hidden;
 }
 ::ng-deep.owl-next{
+  padding: 0px !important;
   width: 39px  !important;; 
   border-radius: 100%  !important;;
   height: 39px  !important;;
-  background: #FE7C7B  !important;;
   font-size: 40px  !important;;
   display: inline-block  !important;;
+  img{
+    width: 100%;
+  }
 }
 ::ng-deep.owl-prev{
+  padding: 0px !important;
   width: 39px  !important;; 
   border-radius: 100%  !important;;
   height: 39px  !important;;
@@ -109,11 +113,21 @@
   margin-top: 15px;
   height: 20px;
   display: flex;
-  overflow: hidden;}
-:ng-deep  .owl-dot{
-    display: inline;
-    transform: translateX(-20px); 
+  overflow: hidden;
+  span{
+    background: #E0E0E0 !important;
   }
+  .active{
+    span{
+      background-color: #FE7C7B !important;
+
+    }
+  }
+}
+// :ng-deep  .owl-dot{
+//     display: inline;
+//     transform: translateX(-20px); 
+//   }
   ::ng-deep .owl-theme{
     height: 100% !important;
   }
@@ -126,11 +140,11 @@
 }
 
 ::ng-deep .owl-prev{
-    background: url('../../../../../assets/svg/left-arrow.svg') no-repeat !important;
+    // background: url('../../../../../assets/svg/left-arrow.svg') no-repeat !important;
   margin: 0px 20px !important;
   }
 ::ng-deep .owl-next{
-  background: url('../../../../../assets/svg/right-arrow.svg') no-repeat !important;
+  // background: url('../../../../../assets/svg/right-arrow.svg') no-repeat !important;
   margin: 0px 20px !important;
 
 }
@@ -183,7 +197,7 @@
 .cta__row{
   margin: 0px 20px;
   button{
-    background: #FE7C7B;
+    // background: #FE7C7B;
     width: 100%;
     color: white;
     margin-top: 20px;

@@ -1,5 +1,5 @@
 import { LoginComponent } from './views/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OnboardingComponent } from './onboarding.component';
@@ -10,9 +10,14 @@ import { SwiperModule } from 'swiper/angular';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import { SignupComponent } from './views/signup/signup.component';
+import { PhoneLoginComponent } from './views/phone-number/phone-number.component';
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CarouselModule,
     CommonModule,
     SharedModule,
@@ -20,8 +25,10 @@ import {MatInputModule} from '@angular/material/input';
     SwiperModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    MatIconModule,
+
   ],
-  declarations: [OnboardingComponent, SpashComponent, LoginComponent]
+  declarations: [OnboardingComponent, SpashComponent, LoginComponent, SignupComponent,PhoneLoginComponent]
 })
 export class OnboardingModule { }
+ 
