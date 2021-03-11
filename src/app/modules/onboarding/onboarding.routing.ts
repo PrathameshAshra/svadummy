@@ -4,12 +4,16 @@ import { LoginComponent } from './views/login/login.component';
 import { SpashComponent } from './views/spash/spash.component';
 import { Routes, RouterModule } from '@angular/router';
 import { OnboardingComponent } from './onboarding.component';
+import { FollowupLoginComponent } from './views/followup-login/followup-login.component';
 
 
 const routes: Routes = [
   { path: '', component: SpashComponent, },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'mobile-verification', component: SignupComponent, data : {typeOfOTP : 'mobile'}},
+  { path: 'email-verification', component: SignupComponent , data : {typeOfOTP : 'email'}},
+  { path: 'otp-verification', component: PhoneLoginComponent },
+  { path: 'onboarding', component: FollowupLoginComponent },
   {  },
 ];
 

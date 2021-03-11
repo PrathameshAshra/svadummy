@@ -4,7 +4,8 @@ import { SharedComponent } from './shared.component';
 import { CarouselComponent  } from './carousel/carousel.component';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   imports: [
     CommonModule,
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [SharedComponent, CarouselComponent,  ]
   ,
-  exports:  [ SharedComponent, CarouselComponent,     FormsModule,
+  exports:  [ SharedComponent, CarouselComponent,  MatRadioModule,   FormsModule, MatCheckboxModule,
     MatButtonModule]
 })
 export class SharedModule { }

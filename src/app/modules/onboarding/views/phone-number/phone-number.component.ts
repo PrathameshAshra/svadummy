@@ -4,6 +4,7 @@ import { PhoneNumber } from 'src/app/model/user.model';
 import {environment } from '../../../../../environments/environment' ;
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { DataSharingService } from 'src/app/services/dataSharing.service';
 
 
 @Component({
@@ -15,51 +16,32 @@ import 'firebase/auth';
 export class PhoneLoginComponent implements OnInit {
 
   windowRef: any;
-
+  itemToVerify: any;
   phoneNumber: PhoneNumber  = new PhoneNumber();
 
   verificationCode: string | undefined;
 
   user: any;
 
-  constructor(private win: AuthService) { }
+  constructor(private win: AuthService, private dataSharingService: DataSharingService) { }
 
   ngOnInit(): void {
-    firebase.initializeApp(environment.firebase);
-
-    this.windowRef = this.win.windowRef;
-    this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-
-    this.windowRef.recaptchaVerifier.render();
-  }
-
-
-  sendLoginCode(): void {
-
-    const appVerifier = this.windowRef.recaptchaVerifier;
-
-    const num = this.phoneNumber.e164;
-
-    firebase.auth().signInWithPhoneNumber(num, appVerifier)
-      .then((result: any) => {
-
-        this.windowRef.confirmationResult = result;
-
-      })
-      .catch((error: any) => console.log(error));
+    // tslint:disable-next-line: deprecation
+    this.dataSharingService.currentData.subscribe((data: any) => {
+      console.log(data);
+      this.windowRef = data[0];
+      this.itemToVerify = data[1];
+    });
 
   }
 
-  verifyLoginCode(): void {
-    this.windowRef.confirmationResult
-      .confirm(this.verificationCode)
-      .then((result: { user: any; }) => {
-
-        this.user = result.user;
-
-      })
-      .catch((error: any) => console.log(error, 'Incorrect code entered?'));
-  }
-
-
+// Verify OTP
+verifyLoginCode(): void {
+  this.windowRef.confirmationResult
+    .confirm(this.verificationCode)
+    .then((result: { user: any; }) => {
+      this.user = result.user;
+    })
+    .catch((error: any) => { console.log(error, 'Incorrect code entered?'); });
+}
 }

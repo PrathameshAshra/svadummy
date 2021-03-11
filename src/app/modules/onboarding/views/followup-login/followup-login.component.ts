@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions, SlidesOutputData } from 'ngx-owl-carousel-o';
+import { SlidesOutputData, OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
-  selector: 'app-spash',
-  templateUrl: './spash.component.html',
-  styleUrls: ['./spash.component.scss']
+  selector: 'app-followup-login',
+  templateUrl: './followup-login.component.html',
+  styleUrls: ['./followup-login.component.scss']
 })
-export class SpashComponent implements OnInit {
+export class FollowupLoginComponent implements OnInit {
   lengthOfCarousel = 4;
   activeSlides: SlidesOutputData = new SlidesOutputData();
   slidesStore: any[] = [];
@@ -43,12 +43,9 @@ displayTinyNextNotation : boolean | undefined ;
     console.log(ev);
   }
   getPassedData(data: SlidesOutputData): void {
-  
 
   }
   ngOnInit(): void {
-
-
   }
 
-}
+  }

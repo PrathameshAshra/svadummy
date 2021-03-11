@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { SignupComponent } from './views/signup/signup.component';
 import { PhoneLoginComponent } from './views/phone-number/phone-number.component';
+import { FollowupLoginComponent } from './views/followup-login/followup-login.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,6 @@ import { PhoneLoginComponent } from './views/phone-number/phone-number.component
     MatIconModule,
 
   ],
-  declarations: [OnboardingComponent, SpashComponent, LoginComponent, SignupComponent,PhoneLoginComponent]
+  declarations: [OnboardingComponent, SpashComponent, LoginComponent, SignupComponent,PhoneLoginComponent, FollowupLoginComponent]
 })
 export class OnboardingModule { }
- 

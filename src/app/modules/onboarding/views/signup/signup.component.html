@@ -5,44 +5,37 @@
     
   </div>
   <div class="row body__row">
-    <mat-form-field class="sva-primary-input-field w-100" >
+    <mat-form-field appearance="fill" *ngIf='TypeOfView.typeOfOTP ==="mobile"' class="sva-primary-input-field w-100" >
       <mat-label>Mobile No</mat-label>
-      <input  matInput type="text" >
+      <input [(ngModel)]="UserModel.PhoneNumber" matInput type="text" >
     </mat-form-field>
-    <mat-form-field class="sva-primary-input-field w-100" >
-      <mat-label>First Name</mat-label>
-      <input  matInput type="text" >
+    <mat-form-field  appearance="fill" *ngIf='TypeOfView.typeOfOTP ==="email"' class="sva-primary-input-field w-100" >
+      <mat-label>Email</mat-label>
+      <input [(ngModel)]="UserModel.email" matInput type="text" >
+    </mat-form-field>
+    <mat-form-field appearance="fill"  class="sva-primary-input-field w-100" >
+      <mat-label >First Name</mat-label>
+      <input [(ngModel)]="UserModel.firstName"  matInput type="text" >
     </mat-form-field>
     
-    <mat-form-field class="sva-primary-input-field w-100" >
+    <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
       <mat-label>Last Name</mat-label>
-      <input  matInput type="text" >
+      <input [(ngModel)]="UserModel.LastName"   matInput type="text" >
     </mat-form-field>
  
-    <mat-form-field class="sva-primary-input-field w-100" >
+    <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
       <mat-label>Password </mat-label>
-      <input  matInput type="text" >
+      <input [(ngModel)]="UserModel.password"  matInput type="text" >
     </mat-form-field>
-    <mat-form-field class="sva-primary-input-field w-100" >
+    <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
       <mat-label>Confirm Password</mat-label>
-      <input  matInput type="text" >
+      <input   matInput type="text" >
     </mat-form-field>
-    <button mat-flat-button class="sva-primary-btn"color="primary" (click)="sendLoginCode()">Signup</button>
+    <button mat-flat-button class="sva-primary-btn"color="primary"   *ngIf='TypeOfView.typeOfOTP ==="mobile"' (click)="sendLoginCode()">Signup</button>
+    <button mat-flat-button class="sva-primary-btn"color="primary"   *ngIf='TypeOfView.typeOfOTP ==="email"' (click)="createUser()">Signup</button>
    
   </div>
-  <div id="recaptcha-container"></div>
+  <div  id="recaptcha-container"></div>
 
-  <div *ngIf="windowRef.confirmationResult">
-    <hr>
-    <label for="code">Enter your Verification Code Here</label><br>
-    <input type="text" name="code" [(ngModel)]="verificationCode">
-
-    <button (click)="verifyLoginCode()">Verify</button>
-  </div>
-  <div *ngIf="user">
-    You have successfully logged in with your phone number!
-  
-    UserId: {{ user?.uid }}
-  
-  </div>
+ 
   </div>

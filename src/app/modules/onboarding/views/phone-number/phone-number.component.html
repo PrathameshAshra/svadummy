@@ -1,27 +1,11 @@
-<div [hidden]="user">
-  <h1>Sign In with Your Phone Number</h1>
+<div class="container">
+  <h1>OTP Verification</h1>
+  <h3>We’ve sent a verification code to - <span class="content">{{itemToVerify}}</span><a class="edit">Edit</a> </h3>
 
-  <label for="phone">Phone Number</label><br>
-  <input type="text" [(ngModel)]="phoneNumber.country"  class="input" placeholder="+91"    >
-  <input type="text" [(ngModel)]="phoneNumber.number"     class="input" placeholder="949">
-  
-  <div id="recaptcha-container"></div>
-
-  <button (click)="sendLoginCode()">SMS Text Login Code</button>
-
-  <div *ngIf="windowRef.confirmationResult">
-    <hr>
-    <label for="code">Enter your Verification Code Here</label><br>
-    <input type="text" name="code" [(ngModel)]="verificationCode">
-
-    <button (click)="verifyLoginCode()">Verify</button>
-  </div>
-
-</div>
-
-<div *ngIf="user">
-  You have successfully logged in with your phone number!
-
-  UserId: {{ user?.uid }}
-
+  <mat-form-field appearance="fill">
+    <mat-label>Enter Verification Code</mat-label>
+    <input [(ngModel)]='verificationCode' matInput>
+  </mat-form-field>
+  <button mat-flat-button (click)='verifyLoginCode()' color="primary">Continue</button>
+<p>Didn't receive otp? <span>Resend code</span></p>
 </div>

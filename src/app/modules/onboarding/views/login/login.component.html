@@ -5,20 +5,20 @@
   
 </div>
 <div class="row body__row">
-  <mat-form-field class="sva-primary-input-field w-100" >
+  <mat-form-field class="sva-primary-input-field w-100"  appearance="fill">
     <mat-label>Email or Mobile No</mat-label>
     <input  matInput type="text" >
   </mat-form-field>
-  <mat-form-field class="sva-primary-input-field w-100" >
+  <mat-form-field class="sva-primary-input-field w-100"  appearance="fill">
     <mat-label>Password</mat-label>
     <input  matInput type="text" >
   </mat-form-field>
   <span class="forgot__password">Forgot Password ? </span>
   <button mat-flat-button class="sva-primary-btn"color="primary">Login</button>
-  <button mat-flat-button  class="sva-secondary-btn"> 
+  <button mat-flat-button  class="sva-secondary-btn" routerLink="/mobile-verification"> 
   <img src="../../../../../assets/svg/mobile_icon.svg" alt="">
-    Sign in with Mobile Number</button>
-  <button mat-flat-button  class="sva-secondary-btn">
+    Sign in with Mobile Number</button> 
+  <button mat-flat-button  class="sva-secondary-btn" routerLink="/email-verification">
     <img src="../../../../../assets/svg/email_icon.svg" alt="">
     Sign in with Email</button>
   <button mat-flat-button class="sva-secondary-btn"   (click)='loginWithGoogle()' >
