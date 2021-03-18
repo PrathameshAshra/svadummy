@@ -5,22 +5,16 @@
     
 }
 .header__row{
-    padding-top: 51px;
-    padding-top: 51px;
+    padding-top: 28px;
     width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    h1{
-        margin-bottom: 12px;
-        font-size: 28px;
-        font-weight: 500;
-        p{
-
-            font-size: 16px;
-            color: #333333;
-            margin: 0px;
-        }
+    .H2{
+        margin-bottom: 8px;  
+    }
+    .B1{
+        margin-bottom: 24px;
     }
 }
 
@@ -38,7 +32,7 @@
 
     }
     .sva-secondary-btn{
-        background-color: #FFEBEB;
+        border:1px solid  #FE7C7B;
         margin: 7.5px 0px;
         font-size: 13px;
         img{
@@ -58,6 +52,9 @@
     .forgot__password{
         display: block;
         margin-left: auto;
-        margin-bottom: 30px
+        margin-bottom: 24px;
+        color: #828282;
+
+
     }
 }

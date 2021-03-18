@@ -1,21 +1,23 @@
 <div class="container-fluid">
 <div class="row header__row">
-  <h1>Login</h1>
-  <p>Login using your existing account</p>
+  <span class="H2 d-block">Login</span>
+  <p  class="B1  d-block">Login using your existing account</p>
   
 </div>
 <div class="row body__row">
   <mat-form-field class="sva-primary-input-field w-100"  appearance="fill">
     <mat-label>Email or Mobile No</mat-label>
-    <input  matInput type="text" >
+    <input class="B1" matInput type="text" >
   </mat-form-field>
   <mat-form-field class="sva-primary-input-field w-100"  appearance="fill">
     <mat-label>Password</mat-label>
-    <input  matInput type="text" >
+    <input class="B1"  matInput type="text" >
   </mat-form-field>
-  <span class="forgot__password">Forgot Password ? </span>
+  <span class="forgot__password B3">Forgot Password? </span>
   <button mat-flat-button class="sva-primary-btn"color="primary">Login</button>
-  <button mat-flat-button  class="sva-secondary-btn" routerLink="/mobile-verification"> 
+  <app-sva-saperator [SvaSaperatorConfig]=SvaSaperatorConfig></app-sva-saperator>
+
+  <button mat-flat-button  class="sva-secondary-btn" routerLink="/mobile-verification">
   <img src="../../../../../assets/svg/mobile_icon.svg" alt="">
     Sign in with Mobile Number</button> 
   <button mat-flat-button  class="sva-secondary-btn" routerLink="/email-verification">

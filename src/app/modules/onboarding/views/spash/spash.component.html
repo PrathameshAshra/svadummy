@@ -1,21 +1,21 @@
-<owl-carousel-o [options]="customOptions" (change)='getPassedData($event)'>
+<owl-carousel-o [options]="customOptions" class="carousel" (change)='getPassedData($event)'>
 
-  <ng-template carouselSlide>
+  <ng-template  carouselSlide>
     <div class="slide screen-1">
       <img src="../../../../../assets/svg/sva-logo.svg" alt="">
-      <span>- You First</span>
+      <span class="H3">- You First</span>
     </div>
   </ng-template>
-  <ng-template carouselSlide>
+  <ng-template class="carousel" carouselSlide>
     <div class="slide screen-2">
       <div class="hero__row">
         <div class="imagePlaceHolder">
         </div>
         <div class="heading__row">
-          <h1>Welcome to Svā</h1>
+          <h1 class="H2">Welcome to Svā</h1>
         </div>
         <div class="caption__row">
-          <span>Svā is a wellness platform focused on holistic 
+          <span class="B2">Svā is a wellness platform focused on holistic 
             development. We believe wellness is a journey 
             involving all senses.</span>
         </div>
@@ -23,55 +23,38 @@
 
     </div>
   </ng-template>
-  <ng-template carouselSlide>
+  <ng-template class="carousel" carouselSlide>
     <div class="slide screen-2">
       <div class="hero__row">
         <div class="imagePlaceHolder">
         </div>
         <div class="heading__row">
-          <h1>Vitals</h1>
+          <h1 class="H2">Vitals</h1>
         </div>
         <div class="caption__row">
-          <span>Record, track and easily share your body’s vitals with family and medical professionals..</span>
+          <span class="B2">Record, track and easily share your body’s vitals with family and medical professionals..</span>
         </div>
       </div>
 
     </div>
   </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide screen-2">
-      <div class="hero__row">
-        <div class="imagePlaceHolder">
-        </div>
-        <div class="heading__row">
-          <h1>Journey</h1>
-        </div>
-        <div class="caption__row">
-          <span>ReA journey, to better understand yourself, is 
-            made up of multiple paths. Select curated 
-            paths to work on, engage your senses and 
-            achieve your wellness goals.</span>
-        </div>
-      </div>
 
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
+  <ng-template class="carousel" carouselSlide>
     <div class="slide screen-2">
       <div class="hero__row">
         <div class="imagePlaceHolder">
         </div>
         <div class="heading__row">
-          <h1>Journey</h1>
+          <h1 class="h2">Journey</h1>
         </div>
         <div class="caption__row">
-          <span>A journey, to better understand yourself, is 
+          <span class="B2">A journey, to better understand yourself, is 
             made up of multiple paths. Select curated 
             paths to work on, engage your senses and 
             achieve your wellness goals.</span>
         </div>
         <div class="cta__row">
-          <button mat-flat-button routerLink='/login' color="primary">Continue</button>
+          <button class="" mat-flat-button routerLink='/login' color="primary">Continue</button>
 
         </div>
       </div>
@@ -81,27 +64,3 @@
   
 
 </owl-carousel-o>
-<div class="tiny-controls">
-  <div class="prev-tiny"*ngIf='displayTinyPrevNotation'>
-  </div>
-  <div class="next-tiny"*ngIf='displayTinyNextNotation'>
-  </div>
-</div>
-
-
-<!-- <div class="controls">
-  <div class="prev-container">
-    <img src="../../../assets/svg/left-arrow.svg" alt="">
-  </div>
-  <div class="bullet-container">
-    <div [ngClass]="{'activeBullet': currentPosition === i,'inactiveBullet': currentPosition != i}" class="bullets"
-      *ngFor='let item of [].constructor(4); let i = index'>
-
-    </div>
-  </div>
-  <div class="next-container">
-    <img src="../../../assets/svg/right-arrow.svg" alt="">
-
-  </div>
-
-</div> -->

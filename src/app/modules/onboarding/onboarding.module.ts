@@ -14,6 +14,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { SignupComponent } from './views/signup/signup.component';
 import { PhoneLoginComponent } from './views/phone-number/phone-number.component';
 import { FollowupLoginComponent } from './views/followup-login/followup-login.component';
+import { SVAsaperatorModule } from 'src/app/shared/sva-saperator/package.module';
+
+
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -27,6 +31,8 @@ import { FollowupLoginComponent } from './views/followup-login/followup-login.co
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatRadioModule,
+    SVAsaperatorModule,
 
   ],
   declarations: [OnboardingComponent, SpashComponent, LoginComponent, SignupComponent,PhoneLoginComponent, FollowupLoginComponent]

@@ -39,7 +39,100 @@ $sva2-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($sva2-theme);
 
+
+
+
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Nunito Sans';}
+body { margin: 0; font-family: 'Nunito Sans', sans-serif;; }
+$font-color: #333333;
+.H1{
+    color:$font-color;
+    font-size: 34px;
+    font-weight: 700;
+    margin:0px;
+}
+.H2{
+    color: $font-color;
+    font-size: 24px;
+    font-weight: 700;
+    margin:0px;
+}
+.H3{
+    color: $font-color;
+    font-size: 20px;
+    font-weight:500;
+    margin:0px;
+}
+.H4{
+    color: $font-color;
+    font-size: 16px;
+    font-weight: 600;
+    margin:0px;
+}
+.H5{
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 600;
+    margin:0px;
+}
+.S1{
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 600;
+    margin:0px;
+}
+.B1{
+    color: $font-color;
+    font-size: 16px;
+    font-weight:400;
+    margin:0px;
+}
+.B2{
+    color: $font-color;
+    font-size: 16px;
+    font-weight:400;
+    font-style: italic;
+}
+.B3{
+    color: $font-color;
+    font-size: 14px;
+    font-weight:400;
+    margin:0px;
+}
+.T1{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:400;
+    margin:0px;
+}
+.T2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:600;
+    margin:0px;
+}
+.T2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:600;
+    margin:0px;
+}
+.C1{
+    color: $font-color;
+    font-size: 10px;
+    font-weight:500;
+    margin:0px;
+}
+.C2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:400;
+    margin:0px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before{
+    background-color: white;
+}
