@@ -17,10 +17,10 @@
   <button mat-flat-button class="sva-primary-btn"color="primary">Login</button>
   <app-sva-saperator [SvaSaperatorConfig]=SvaSaperatorConfig></app-sva-saperator>
 
-  <button mat-flat-button  class="sva-secondary-btn" routerLink="/mobile-verification">
+  <button mat-flat-button  class="sva-secondary-btn" [routerLink]="['/unauth/mobile-verification', { data: 'mobile' }]" >
   <img src="../../../../../assets/svg/mobile_icon.svg" alt="">
     Sign in with Mobile Number</button> 
-  <button mat-flat-button  class="sva-secondary-btn" routerLink="/email-verification">
+  <button mat-flat-button  class="sva-secondary-btn" [routerLink]="['/unauth/mobile-verification', { data: 'email' }]">
     <img src="../../../../../assets/svg/email_icon.svg" alt="">
     Sign in with Email</button>
   <button mat-flat-button class="sva-secondary-btn"   (click)='loginWithGoogle()' >

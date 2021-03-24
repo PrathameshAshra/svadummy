@@ -3,9 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 {
-  path: '',
+  path: 'unauth',
   loadChildren: () => import('./modules/onboarding/onboarding.module').then(m => m.OnboardingModule)
-
+},
+{
+  path: 'auth',
+  loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
+}, {
+  path: '**', redirectTo: 'unauth'
 }
 ];
 
