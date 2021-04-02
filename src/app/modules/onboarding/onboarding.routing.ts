@@ -10,9 +10,8 @@ import { FollowupLoginComponent } from './views/followup-login/followup-login.co
 const routes: Routes = [
   { path: '', component: SpashComponent, },
   { path: 'login', component: LoginComponent },
-  { path: 'mobile-verification', component: SignupComponent, data : {typeOfOTP : 'mobile'}},
-  { path: 'email-verification', component: SignupComponent , data : {typeOfOTP : 'email'}},
-  { path: 'otp-verification', component: PhoneLoginComponent },
+  { path: 'verification/:id', component: SignupComponent},
+  { path: 'otp-verification/:id', component: PhoneLoginComponent },
   { path: 'onboarding', component: FollowupLoginComponent },
   {  },
 ];

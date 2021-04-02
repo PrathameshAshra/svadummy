@@ -1,61 +1,92 @@
+import { UserService } from './../../../../services/user.service';
 import { environment } from './../../../../../environments/environment';
 import { AuthService } from './../../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { PhoneNumber, User } from 'src/app/model/user.model';
+import { IUser } from 'src/app/model/user.model';
 
 // import * as firebase from 'firebase';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataSharingService } from 'src/app/services/dataSharing.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
-  providers: [AuthService]
 })
 export class SignupComponent implements OnInit {
   windowRef: any;
-  phoneNumber = new PhoneNumber();
   verificationCode: string | undefined;
   user: any;
   TypeOfView: any;
-  UserModel: User = new User();
+  UserModel: IUser = new IUser();
   sub: any;
+  mobileForm: FormGroup;
+
   constructor(
-    private win: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private dataSharingService: DataSharingService,
-  ) { }
+    private toastr: ToastrService,
+    private userService: UserService,
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+
+  ) {
+
+    this.mobileForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      mobile: ['', [Validators.required,  Validators.minLength(10)]],
+      email: ['', [ Validators.email]]
+  });
+   }
 
   // Shoot SMS
   sendLoginCode(): void {
-
   }
 
+
+  onSubmit(): void {
+    this.UserModel.first_name = this.mobileForm.value.firstName;
+    this.UserModel.last_name = this.mobileForm.value.lastName;
+    this.UserModel.contact_number = this.mobileForm.value.mobile;
+    this.UserModel.email = this.mobileForm.value.email;
+    // tslint:disable-next-line: deprecation
+    this.userService.createUser(this.UserModel).subscribe({
+      next: (result: any) => {
+      console.log(result);
+      if (result.status === 'error'){
+        this.toastr.error('User not created');
+      }else{
+        this.toastr.success('Try logging in');
+        this.router.navigate(['unauth/otp-verification/' + this.UserModel.contact_number ]);
+      }
+      },
+      error: (err: any) => {
+        this.toastr.error(err);
+
+      }
+    });
+    }
 
 
   createUser(): any {
   }
   sendEmailVerification(): void {
-
-
   }
   passwordReset(): void {
-
   }
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
-    this.sub = this.route.data.subscribe((v) => {
-      this.TypeOfView = v; console.log(v);
-    });
-
-
-
+    this.sub = this.route.params.subscribe(params => {
+      this.TypeOfView = params.id;
+   });
   }
 }
 

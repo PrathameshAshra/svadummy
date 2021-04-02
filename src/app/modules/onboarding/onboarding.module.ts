@@ -18,6 +18,9 @@ import { SVAsaperatorModule } from 'src/app/shared/sva-saperator/package.module'
 
 
 import {MatRadioModule} from '@angular/material/radio';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   imports: [
@@ -26,16 +29,18 @@ import {MatRadioModule} from '@angular/material/radio';
     CarouselModule,
     CommonModule,
     SharedModule,
-    
+    HttpClientModule,
     OnboardingRoutes,
     SwiperModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatRadioModule,
+    MatListModule,
     SVAsaperatorModule,
 
+
   ],
-  declarations: [OnboardingComponent, SpashComponent, LoginComponent, SignupComponent,PhoneLoginComponent, FollowupLoginComponent]
+  declarations: [OnboardingComponent, SpashComponent, LoginComponent, SignupComponent, PhoneLoginComponent, FollowupLoginComponent]
 })
 export class OnboardingModule { }

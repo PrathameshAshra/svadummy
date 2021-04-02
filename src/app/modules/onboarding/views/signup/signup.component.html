@@ -5,37 +5,36 @@
     
   </div>
   <div class="row body__row">
-    <mat-form-field appearance="fill" *ngIf='TypeOfView.typeOfOTP ==="mobile"' class="sva-primary-input-field w-100" >
-      <mat-label>Mobile No</mat-label>
-      <input [(ngModel)]="UserModel.PhoneNumber" matInput type="text" >
-    </mat-form-field>
-    <mat-form-field  appearance="fill" *ngIf='TypeOfView.typeOfOTP ==="email"' class="sva-primary-input-field w-100" >
-      <mat-label>Email</mat-label>
-      <input [(ngModel)]="UserModel.email" matInput type="text" >
-    </mat-form-field>
-    <mat-form-field appearance="fill"  class="sva-primary-input-field w-100" >
-      <mat-label >First Name</mat-label>
-      <input [(ngModel)]="UserModel.firstName"  matInput type="text" >
-    </mat-form-field>
+  
+    <form [formGroup]="mobileForm" (ngSubmit)="onSubmit()">
     
-    <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
-      <mat-label>Last Name</mat-label>
-      <input [(ngModel)]="UserModel.LastName"   matInput type="text" >
-    </mat-form-field>
- 
-    <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
-      <mat-label>Password </mat-label>
-      <input [(ngModel)]="UserModel.password"  matInput type="text" >
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
-      <mat-label>Confirm Password</mat-label>
-      <input   matInput type="text" >
-    </mat-form-field>
-    <button mat-flat-button class="sva-primary-btn"color="primary"   *ngIf='TypeOfView.typeOfOTP ==="mobile"' (click)="sendLoginCode()">Signup</button>
-    <button mat-flat-button class="sva-primary-btn"color="primary"   *ngIf='TypeOfView.typeOfOTP ==="email"' (click)="createUser()">Signup</button>
+      
+      <mat-form-field appearance="fill"  class="sva-primary-input-field w-100" >
+        <mat-label >First Name</mat-label>
+        <input formControlName=firstName   matInput type="text" >
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
+        <mat-label>Last Name</mat-label>
+        <input formControlName=lastName    matInput type="text" >
+      </mat-form-field>
    
+      <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
+        <mat-label>Mobile No</mat-label>
+        <input formControlName=mobile  matInput type="text" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="sva-primary-input-field w-100" >
+        <mat-label>Email </mat-label>
+        <input formControlName=email  matInput type="text" >
+      </mat-form-field>
+    
+
+      <button mat-flat-button class="sva-primary-btn"color="primary"(click)="createUser()"[disabled]="!mobileForm.valid">Signup</button>
+     
+    </form>
+
   </div>
-  <div  id="recaptcha-container"></div>
 
  
   </div>

@@ -31,8 +31,8 @@ export class SpashComponent implements OnInit {
   };
 
 
-displayTinyPrevNotation : boolean | undefined;
-displayTinyNextNotation : boolean | undefined ;
+displayTinyPrevNotation: boolean | undefined;
+displayTinyNextNotation: boolean | undefined ;
   constructor() { }
 
   changeCustomDots(): void{
@@ -43,7 +43,7 @@ displayTinyNextNotation : boolean | undefined ;
     console.log(ev);
   }
   getPassedData(data: SlidesOutputData): void {
-  
+
 
   }
   ngOnInit(): void {

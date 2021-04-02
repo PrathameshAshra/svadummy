@@ -1,12 +1,14 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../services/auth.service';
-import { PhoneNumber } from 'src/app/model/user.model';
-import {environment } from '../../../../../environments/environment' ;
+// import { PhoneNumber } from 'src/app/model/user.model';
+import { environment } from '../../../../../environments/environment';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { DataSharingService } from 'src/app/services/dataSharing.service';
+import { localStorageService } from 'src/app/services/localstorage.service';
+import { ToastrService } from 'ngx-toastr';
 
-
+const OTPEXIPRYTIME = 300;
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'phone-login',
@@ -14,34 +16,72 @@ import { DataSharingService } from 'src/app/services/dataSharing.service';
   styleUrls: ['./phone-number.component.scss']
 })
 export class PhoneLoginComponent implements OnInit {
-
+  mobileNumber = '';
   windowRef: any;
   itemToVerify: any;
-  phoneNumber: PhoneNumber  = new PhoneNumber();
+  secondsLeft: any;
+  // phoneNumber: PhoneNumber  = new PhoneNumber();
 
-  verificationCode: string | undefined;
+  verificationCode = '';
 
   user: any;
 
-  constructor(private win: AuthService, private dataSharingService: DataSharingService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private router: Router,
+    private localService: localStorageService) { }
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
-    this.dataSharingService.currentData.subscribe((data: any) => {
-      console.log(data);
-      this.windowRef = data[0];
-      this.itemToVerify = data[1];
+    this.route.params.subscribe(params => {
+      this.mobileNumber = params.id;
     });
-
+    this.generateOTP();
   }
 
-// Verify OTP
-verifyLoginCode(): void {
-  this.windowRef.confirmationResult
-    .confirm(this.verificationCode)
-    .then((result: { user: any; }) => {
-      this.user = result.user;
-    })
-    .catch((error: any) => { console.log(error, 'Incorrect code entered?'); });
-}
+  expireCode(): void {
+    const t = setInterval((x: any) => {
+      this.secondsLeft = this.secondsLeft - 1;
+      if (this.secondsLeft === 0) {
+        clearInterval(t);
+        this.toastr.error('OTP Expired, try resending it');
+      }
+    }, 1000);
+
+  }
+  generateOTP(): void {
+    this.secondsLeft = OTPEXIPRYTIME;
+    this.authService.generateOtp(this.mobileNumber).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        if (data.status === 'success') {
+          this.toastr.success('Check your device for OTP');
+        }
+        this.expireCode();
+      }
+    });
+  }
+  // Verify OTP
+  verifyLoginCode(): void {
+    // tslint:disable-next-line: deprecation
+    this.authService.validateOtp(this.mobileNumber, this.verificationCode).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        if (data.status === 'success'){
+          console.log(data.data.authinfo);
+          console.log(data.data.user);
+          this.localService.setContact(data.data.authinfo.contact);
+          this.localService.setToken(data.data.authinfo.token);
+          this.localService.setUserId(JSON.stringify(data.data.user));
+          this.toastr.success('OTP Verified');
+          this.router.navigate(['unauth/onboarding/']);
+
+        }else{
+          this.toastr.error('Something went wrong, try resending or after some time');
+        }
+      }
+    });
+  }
 }

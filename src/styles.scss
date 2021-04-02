@@ -42,6 +42,10 @@ $sva2-theme: mat-light-theme((
 
 
 
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -207,12 +211,14 @@ mat-radio-group{
 
   .sva-checkbox-button{
 
-    width: 48%;
+    min-width: 48%;
     display: flex;
     border: 1px solid #FE7C7B;
     align-items: center;
+    margin-bottom: 8px;
     border-radius: 5px;
-}
+    margin-top: 8px;
+  }
 .mat-checkbox-layout{
   margin-top: 12px;
   margin-bottom: 12px;

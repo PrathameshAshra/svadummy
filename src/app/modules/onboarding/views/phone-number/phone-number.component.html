@@ -1,11 +1,11 @@
 <div class="container">
   <h1>OTP Verification</h1>
-  <h3>We’ve sent a verification code to - <span class="content">{{itemToVerify}}</span><a class="edit">Edit</a> </h3>
+  <h3>We’ve sent a verification code to - <span class="content">{{mobileNumber}}</span><a class="edit">Edit</a>{{secondsLeft}} </h3>
 
   <mat-form-field appearance="fill">
     <mat-label>Enter Verification Code</mat-label>
-    <input [(ngModel)]='verificationCode' matInput>
+    <input [maxlength]="6" type="tel" [(ngModel)]='verificationCode' matInput>
   </mat-form-field>
-  <button mat-flat-button (click)='verifyLoginCode()' color="primary">Continue</button>
-<p>Didn't receive otp? <span>Resend code</span></p>
+  <button mat-flat-button (click)='verifyLoginCode()'  [disabled]='secondsLeft === 0' color="primary">Continue</button>
+<p>Didn't receive otp? <span (click)='generateOTP()'>Resend code</span></p>
 </div>

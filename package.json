@@ -25,6 +25,7 @@
     "bootstrap": "^4.6.0",
     "firebase": "^8.2.10",
     "ngx-owl-carousel-o": "^5.0.0",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "swiper": "^6.4.15",
     "tslib": "^2.0.0",
