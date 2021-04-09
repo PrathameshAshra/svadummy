@@ -1,85 +1,91 @@
+import { UserService } from '../../../../shared/services/user.service';
 import { environment } from './../../../../../environments/environment';
-import { AuthService } from './../../../../services/auth.service';
+import { AuthService } from '../../../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { PhoneNumber, User } from 'src/app/model/user.model';
+import { IUser } from 'src/app/shared/model/user.model';
 
 // import * as firebase from 'firebase';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataSharingService } from 'src/app/services/dataSharing.service';
+import { DataSharingService } from 'src/app/shared/services/dataSharing.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements   OnInit{
+export class SignupComponent implements OnInit {
   windowRef: any;
-  phoneNumber = new PhoneNumber();
   verificationCode: string | undefined;
   user: any;
   TypeOfView: any;
-  UserModel: User = new User();
+  UserModel: IUser = new IUser();
   sub: any;
+  mobileForm: FormGroup;
+
   constructor(
-    private win: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private dataSharingService: DataSharingService
-) { }
+    private dataSharingService: DataSharingService,
+    private toastr: ToastrService,
+    private userService: UserService,
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
 
- // Shoot SMS
- sendLoginCode(): void {
-  const appVerifier = this.windowRef.recaptchaVerifier;
-  const num = this.UserModel.PhoneNumber;
-  firebase.auth().signInWithPhoneNumber(num, appVerifier)
-    .then(result => {
-      this.windowRef.confirmationResult = result;
-      this.dataSharingService.setData( [this.windowRef, this.UserModel.PhoneNumber]);
-      this.router.navigateByUrl('otp-verification');
-      // this.dataSharingService.setData(this.windowRef.confirmationResult);
-      // this.router.navigateByUrl('otp-verification');
-    })
-    .catch(error => console.log(error));
-}
+  ) {
 
+    this.mobileForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      mobile: ['', [Validators.required,  Validators.minLength(10)]],
+      email: ['', [ Validators.email]]
+  });
+   }
 
-
-createUser(): any{
-  return firebase.auth().createUserWithEmailAndPassword(this.UserModel.email, this.UserModel.password);
+  // Shoot SMS
+  sendLoginCode(): void {
+  }
 
 
-}
-  ngOnInit(): void {
-// initialize firebase setup
-firebase.initializeApp(environment.firebase);
+  onSubmit(): void {
+    this.UserModel.first_name = this.mobileForm.value.firstName;
+    this.UserModel.last_name = this.mobileForm.value.lastName;
+    this.UserModel.contact_number = this.mobileForm.value.mobile;
+    this.UserModel.email = this.mobileForm.value.email;
+    // tslint:disable-next-line: deprecation
+    this.userService.createUser(this.UserModel).subscribe({
+      next: (result: any) => {
+      console.log(result);
+      if (result.status === 'error'){
+        this.toastr.error(result.messages[0]);
+      }else{
+        this.router.navigate(['unauth/otp-verification/' + this.UserModel.contact_number ]);
+      }
+      },
+      error: (err: any) => {
+        this.toastr.error(err);
 
-if (!firebase.apps.length) {
-  firebase.initializeApp({});
-}else {
-  firebase.app(); // if already initialized, use that one
-}
-
-
-// tslint:disable-next-line: deprecation
-this.sub = this.route.data.subscribe((v) => {
-      this.TypeOfView = v; console.log(v);
+      }
     });
-
-    // if (this.TypeOfView === 'mobile'){
-
-
-    // }
+    }
 
 
-  //  Default Firebase setting
-this.windowRef = this.win.windowRef;
-this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-this.windowRef.recaptchaVerifier.render();
+  createUser(): any {
+  }
+  sendEmailVerification(): void {
+  }
+  passwordReset(): void {
+  }
 
-
+  ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
+    this.sub = this.route.params.subscribe(params => {
+      this.TypeOfView = params.id;
+   });
   }
 }
 

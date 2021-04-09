@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CarouselComponent } from './carousel.component';
+import { SvaSaperatorComponent } from './sva-saperator.component';
 
-describe('CarouselComponent', () => {
-  let component: CarouselComponent;
-  let fixture: ComponentFixture<CarouselComponent>;
+describe('SvaSaperatorComponent', () => {
+  let component: SvaSaperatorComponent;
+  let fixture: ComponentFixture<SvaSaperatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ]
+      declarations: [ SvaSaperatorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarouselComponent);
+    fixture = TestBed.createComponent(SvaSaperatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

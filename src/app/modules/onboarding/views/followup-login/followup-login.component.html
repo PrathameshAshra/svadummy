@@ -1,94 +1,131 @@
-<owl-carousel-o [options]="customOptions" (change)='getPassedData($event)'>
-  <ng-template carouselSlide>
-    <div class="slide screen-2">
-      <div class="hero__row">
-        <div class="imagePlaceHolder">
-        </div>
-       
-        <div class="caption__row">
-          <span>Thank you for choosing Svā. We’re thrilled to
-            have you. Help us learn more about you..</span>
-        </div>
-      </div>
-
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide screen-3">
-      <div class="hero__row">
-        <h1>Gender</h1>
-        <p>Select your gender</p>
-      </div>
-      <div class="body__row">
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button color='primary' value="1">Male</mat-radio-button>
-          <mat-radio-button color='primary' value="2">Female</mat-radio-button>
-          <mat-radio-button color='primary' value="3">Other</mat-radio-button>
-          <mat-radio-button color='primary' value="4">Prefer not to say</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide screen-3">
-      <div class="hero__row">
-        <h1>I Live</h1>
-        <p>This may form, or be a part of your support 
-          system.</p>
-      </div>
-      <div class="body__row">
-        <mat-radio-group class='group-radio' aria-label="Select an option">
-          <mat-radio-button color='primary' value="1">With immediate family</mat-radio-button>
-          <mat-radio-button color='primary' value="2">With extended family</mat-radio-button>
-          <mat-radio-button color='primary' value="3">By myself</mat-radio-button>
-          <mat-radio-button color='primary' value="4">With roomate/s</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide screen-3">
-      <div class="hero__row">
-        <h1>What are your hobbies?</h1>
-        <p>Please select from the options below or add 
-          your own..</p>
-      </div>
-      <div class="body__row">
-        <<section class="example-section">
-          <mat-checkbox class="example-margin">Check me!</mat-checkbox>
-          <mat-checkbox class="example-margin">Disabled</mat-checkbox>
-        </section>
-        
-      </div>
-
-    </div>
-  </ng-template>
+<!-- 
+    <form [formGroup]="formGroup">
+  <owl-carousel-o [options]="customOptions">
   
 
-</owl-carousel-o>
-<div class="tiny-controls">
-  <div class="prev-tiny"*ngIf='displayTinyPrevNotation'>
-  </div>
-  <div class="next-tiny"*ngIf='displayTinyNextNotation'>
-  </div>
-</div>
+    <ng-template carouselSlide>
+      <div class="slide screen-2">
+        <div class="hero__row">
+          <div class="imagePlaceHolder">
+          </div>
+         
+          <div class="caption__row">
+            <p class="H2">Thank you for choosing Svā. </p>
+            <p class="B2">
+              We’re thrilled to
+              have you. Help us learn more about you..
+            </p>  
+          </div>
+        </div>
+  
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide screen-3">
+        <div class="hero__row">
+          <h1>Gender</h1>
+          <p>Select your gender</p>
+        </div>
+        <div class="body__row">
+          <mat-radio-group formControlName='gender' aria-label="Select an option" class="priamryRadio">
+            <mat-radio-button class="sva-radio-button"  #btn  color='primary' value="Male">Male</mat-radio-button>
+            <mat-radio-button class="sva-radio-button" color='primary' value="Female">Female</mat-radio-button>
+            <mat-radio-button class="sva-radio-button" color='primary' value="Other">Other</mat-radio-button>
+            <mat-radio-button  class="sva-radio-button" color='primary' value='Perfer not to say'>Prefer not to say</mat-radio-button>
+          </mat-radio-group>
+        </div>
+  
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide screen-3">
+        <div class="hero__row">
+          <h1>I Live</h1>
+          <p>This may form, or be a part of your support 
+            system.</p>
+        </div>
+        <div class="body__row">
+          <mat-radio-group formControlName='live' class='group-radio' aria-label="Select an option">
+            <mat-radio-button class="sva-radio-button" color='primary' value="immediate">With immediate family</mat-radio-button>
+            <mat-radio-button class="sva-radio-button" color='primary' value="extended">With extended family</mat-radio-button>
+            <mat-radio-button class="sva-radio-button" color='primary' value="myself">By myself</mat-radio-button>
+            <mat-radio-button class="sva-radio-button" color='primary' value="roomate">With roomate/s</mat-radio-button>
+          </mat-radio-group>
+        </div>
+  
+      </div>
+    </ng-template>
 
+    <ng-template carouselSlide>
+      <div class="slide screen-3">
+        <div class="hero__row">
+          <h1>What are your hobbies?</h1>
+          <p>Please select from the options below or add 
+            your own..</p>
+        </div>
+        <div class="body__row">
+          <section class="example-section" >
+            <mat-selection-list [(ngModel)]="selectedHobby" [ngModelOptions]="{standalone: true}" >
+              <mat-list-option checkboxPosition="before" *ngFor="let check of ListOfHobbies" [value]='check.hobbie'>
+                {{check.hobbie}}
+              </mat-list-option>
+            </mat-selection-list>
+            
 
-<!-- <div class="controls">
-  <div class="prev-container">
-    <img src="../../../assets/svg/left-arrow.svg" alt="">
-  </div>
-  <div class="bullet-container">
-    <div [ngClass]="{'activeBullet': currentPosition === i,'inactiveBullet': currentPosition != i}" class="bullets"
-      *ngFor='let item of [].constructor(4); let i = index'>
-
-    </div>
-  </div>
-  <div class="next-container">
-    <img src="../../../assets/svg/right-arrow.svg" alt="">
-
-  </div>
-
-</div> -->
+          </section>
+          
+        </div>
+  
+      </div>
+    </ng-template>
+    
+    <ng-template carouselSlide>
+      <div class="slide screen-4">
+        <div class="hero__row">
+          <h1>WH2 What would you like to 
+            work on??</h1>
+          <p>Please select from the options below or add 
+            your own..</p>
+        </div>
+        <div class="body__row">
+          <section class="example-section" >
+            <mat-selection-list color='primary' [(ngModel)]="selectedTags" [ngModelOptions]="{standalone: true}" >
+            <mat-list-option  checkboxPosition="before" *ngFor="let check of listOfTags" [value]='check.tag_name'>
+              {{check.tag_name}}
+            </mat-list-option>
+          </mat-selection-list>
+           
+            </section>
+          
+        </div>
+  
+      </div>
+    </ng-template>
+    
+    <ng-template class="carousel" carouselSlide>
+      <div class="slide screen-2">
+        <div class="hero__row">
+          <div class="imagePlaceHolder">
+          </div>
+          <div class="heading__row">
+            <h1 class="h2">Covid 19</h1>
+          </div>
+          <div class="caption__row">
+            <span class="B2">Simple screening tool. Screen yourself and 
+              your family, friends and colleagues. Create 
+              groups of people you engage with and gain 
+              visibility on their risk status.</span>
+          </div>
+          <div class="cta__row">
+            <button class="" mat-flat-button (click)='onboardingFinish()' color="primary">Continue</button>
+  
+          </div>
+        </div>
+  
+      </div>
+    </ng-template>
+    
+    
+  
+  </owl-carousel-o>
+</form> -->

@@ -39,7 +39,192 @@ $sva2-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($sva2-theme);
 
+
+
+
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Nunito Sans';}
+body { margin: 0; font-family: 'Nunito Sans', sans-serif;; }
+$font-color: #333333;
+.H1{
+    color:$font-color;
+    font-size: 34px;
+    font-weight: 700;
+    margin:0px;
+}
+.H2{
+    color: $font-color;
+    font-size: 24px;
+    font-weight: 700;
+    margin:0px;
+}
+.H3{
+    color: $font-color;
+    font-size: 20px;
+    font-weight:500;
+    margin:0px;
+}
+.H4{
+    color: $font-color;
+    font-size: 16px;
+    font-weight: 600;
+    margin:0px;
+}
+.H5{
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 500;
+    margin:0px;
+}
+.S1{
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 600;
+    margin:0px;
+}
+.B1{
+    color: $font-color;
+    font-size: 16px;
+    font-weight:400;
+    margin:0px;
+}
+.B2{
+    color: $font-color;
+    font-size: 16px;
+    font-weight:400;
+    font-style: italic;
+}
+.B3{
+    color: $font-color;
+    font-size: 14px;
+    font-weight:400;
+    margin:0px;
+}
+.T1{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:400;
+    margin:0px;
+}
+.T2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:600;
+    margin:0px;
+}
+.T2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:600;
+    margin:0px;
+}
+.C1{
+    color: $font-color;
+    font-size: 10px;
+    font-weight:500;
+    margin:0px;
+}
+.C2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:400;
+    margin:0px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before{
+    background-color: white;
+}
+
+// buttons
+.sva-secondary-btn{
+    border: 1px solid #FE7C7B;
+    margin: 7.5px 0px;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: white;
+    font-weight: 400;
+    color: #333333;
+
+}
+
+//radio
+::ng-deep.mat-radio-outer-circle {
+    border-color: #828282!important;
+}
+  ::ng-deep .mat-radio-button .mat-radio-checked .mat-radio-outer-circle {
+    border-color: #FE7C7B!important;
+}
+::ng-deep  .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle{
+  border-color: #fe7c7b !important;
+}
+mat-radio-button.sva-radio-button.mat-radio-checked {
+  
+  background-color: #FFEBEB;
+}
+
+mat-radio-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    
+  }
+
+  mat-radio-button{
+    border: 1px solid #FE7C7B;
+    height: min-content;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    .mat-radio-label{
+        margin: 0px !important;
+      }
+}
+  
+//checkbox
+
+.example-section{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  }
+  ::ng-deep .mat-checkbox{
+    width: 48% !important;
+    padding: 14px 16px !important; 
+    border:1px solid   #FE7C7B !important;
+    border-radius: 5px;
+    height: min-content;
+  }
+  ::ng-deep .mat-checkbox-checked{
+    background-color: #FFEBEB !important;
+  }
+  ::ng-deep  .mat-checkbox-layout{
+    margin-bottom: 0px !important;
+  }
+
+  .sva-checkbox-button{
+
+    min-width: 48%;
+    display: flex;
+    border: 1px solid #FE7C7B;
+    align-items: center;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 8px;
+  }
+.mat-checkbox-layout{
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding-left: 16px;
+}
+::ng-deep .mat-primary .mat-checkbox-checked{
+  background-color: #FFEBEB !important;
+
+}

@@ -14,7 +14,7 @@
     "arrow-return-shorthand": true,
     "curly": true,
     "deprecation": {
-      "severity": "warning"
+      "severity": "off"
     },
     "eofline": true,
     "import-blacklist": [
@@ -83,7 +83,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
@@ -108,7 +108,8 @@
       "options": [
         "ban-keywords",
         "check-format",
-        "allow-pascal-case"
+        "allow-pascal-case",
+        "allow-snake-case"
       ]
     },
     "whitespace": {
@@ -140,12 +141,14 @@
       true,
       "attribute",
       "app",
+      "sva",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
       "app",
+      "sva",
       "kebab-case"
     ]
   }

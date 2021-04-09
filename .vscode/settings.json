@@ -1,10 +1,12 @@
 {
     "cSpell.words": [
+        "Asaperator",
         "Firestore",
         "VRGTPXX",
         "firebaseapp",
         "recaptcha",
         "signup",
-        "swiper"
+        "swiper",
+        "verifyotp"
     ]
 }
