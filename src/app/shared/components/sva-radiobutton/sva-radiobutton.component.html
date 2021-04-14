@@ -1,0 +1,4 @@
+<mat-radio-group [(ngModel)]='selectedItem' (change)='onSelectionChange()'>
+  <mat-radio-button *ngFor='let item of radioButtonArray'
+  class="sva-radio-button"  #btn  color='primary' [value]="item.id">{{item.data}}</mat-radio-button>
+</mat-radio-group>

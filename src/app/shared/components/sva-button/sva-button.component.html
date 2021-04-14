@@ -1,0 +1,16 @@
+<ng-template #Ref>
+  <ng-content> </ng-content>
+</ng-template>
+
+<button mat-flat-button (click)='clickBtn($event)'
+[disabled] = 'disabled'
+[ngClass]=" {
+  'primary': (role === 'primary'),
+  'secondary': (role === 'secondary'),
+  'tertiary': (role === 'tertiary')
+}"
+>
+  <ng-container *ngTemplateOutlet='Ref'>
+
+  </ng-container>
+</button>

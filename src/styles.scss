@@ -1,1 +1,165 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import './assets/scss/carousel.scss';
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+@import './assets/scss/partials.scss';
+@import './assets/scss/variables.scss';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$sva2-primary: mat-palette($mat-sva-p);
+$sva2-accent: mat-palette($mat-sva-a);
+
+// The warn palette is optional (defaults to red).
+$sva2-warn: mat-palette($mat-red);
+ 
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$sva2-theme: mat-light-theme(( 
+  color: (
+    primary: $sva2-primary,
+    accent: $sva2-accent,
+    warn: $sva2-warn,
+  )
+));
+
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($sva2-theme);
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//Colors:
+$font-color: #333333;
+
+
+// TypeFaces
+.H1{
+    color:$font-color;
+    font-size: 34px;
+    font-weight: 700;
+}
+.H2{
+    color: $font-color;
+    font-size: 24px;
+    font-weight: 700;
+}
+.H3{
+    color: $font-color;
+    font-size: 20px;
+    font-weight:500;
+}
+.H4{
+    color: $font-color;
+    font-size: 16px;
+    font-weight: 600;
+}
+.H5{
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 500;
+}
+.S1{
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 600;
+}
+.B1{
+    color: $font-color;
+    font-size: 16px;
+    font-weight:400;
+}
+.B2{
+    color: $font-color;
+    font-size: 16px;
+    font-weight:400;
+    font-style: italic;
+}
+.B3{
+    color: $font-color;
+    font-size: 14px;
+    font-weight:400;
+}
+.T1{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:400;
+}
+.T2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:600;
+}
+.T2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:600;
+}
+.C1{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:500;
+}
+.C2{
+    color: $font-color;
+    font-size: 12px;
+    font-weight:400;
+}
+//UTIl
+.text-align-center{
+    text-align: center;
+}
+
+
+//radio
+::ng-deep.mat-radio-outer-circle {
+    border-color: #828282!important;
+  }
+  ::ng-deep .mat-radio-button .mat-radio-checked .mat-radio-outer-circle {
+    border-color: #FE7C7B!important;
+  }
+  ::ng-deep  .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle{
+  border-color: #fe7c7b !important;
+  }
+  mat-radio-button.sva-radio-button.mat-radio-checked {
+  
+  background-color: #FFEBEB;
+  }
+  
+  mat-radio-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    
+  }
+  
+  mat-radio-button{
+    border: 1px solid #FE7C7B;
+    height: min-content;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    .mat-radio-label{
+        margin: 0px !important;
+      }
+  }
+  

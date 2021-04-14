@@ -1,0 +1,84 @@
+<div class="splash-container " 
+  [ngStyle]="{'background-image': CurrentPage }"
+  
+>
+    <owl-carousel-o [options]="customOptions" class="carousel"  (changed)='onChangeCard($event)' >
+        <ng-template  carouselSlide   style="height: 100%">
+          <div class="slide screen-1">
+            <img src="../../../../../assets/svg/sva-logo.svg" alt="">
+            <span class="H3">- You First</span>
+          </div>
+        </ng-template>
+        <ng-template class="carousel" carouselSlide>
+          <div class="slide screen-2 ">
+            <div class="heading__row">
+              <p class="H2">Welcome to Svā</p>
+            </div >
+            <div class="caption__row">
+              <span class="B2">Svā is a wellness platform focused on holistic 
+                development. We believe wellness is a journey 
+                involving all senses.</span>
+            </div>
+      
+          </div>
+        </ng-template>
+        <ng-template class="carousel" carouselSlide>
+          <div class="slide screen-2">
+            <div class="hero__row">
+             
+              <div class="heading__row">
+                <span class="H2">Vitals</span>
+              </div>
+              <div class="caption__row">
+                <span class="B2">Record, track and easily share your body’s vitals with family and medical professionals..</span>
+              </div>
+            </div>
+      
+          </div>
+        </ng-template>
+      
+        <ng-template class="carousel" carouselSlide>
+          <div class="slide screen-2">
+            <div class="hero__row">
+          
+              <div class="heading__row">
+                <span class="H2">Journeys</span>
+              </div>
+              <div class="caption__row">
+                <span class="B2">A journey, to better understand yourself, is 
+                  made up of multiple paths. Select curated 
+                  paths to work on, engage your senses and 
+                  achieve your wellness goals.</span>
+              </div>
+              
+            </div>
+      
+          </div>
+        </ng-template>
+        
+        <ng-template class="carousel" carouselSlide>
+          <div class="slide screen-2">
+            <div class="hero__row">
+            
+              <div class="heading__row">
+                <span class="H2">Covid 19</span>
+              </div>
+              <div class="caption__row">
+                <span class="B2">Simple screening tool. Screen yourself and 
+                  your family, friends and colleagues. Create 
+                  groups of people you engage with and gain 
+                  visibility on their risk status.</span>
+              </div>
+              <div class="cta__row">
+                <sva-button [role]='"primary"'routerLink='/login' >Continue</sva-button>
+      
+              </div>
+            </div>
+      
+          </div>
+        </ng-template>
+        
+      
+      </owl-carousel-o>
+      
+</div>

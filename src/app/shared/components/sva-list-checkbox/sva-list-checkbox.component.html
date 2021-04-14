@@ -1,0 +1,10 @@
+
+<mat-selection-list #list class="half-width-selection"
+ [(ngModel)]="SelectedData"
+ (ngModelChange)="onNgModelChange($event)">
+  <mat-list-option [checkboxPosition]='positioning' 
+  *ngFor="let check of listOfCheckbox"
+   [value]='check.data'>
+    {{check.data}}
+  </mat-list-option>
+</mat-selection-list>

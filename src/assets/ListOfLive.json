@@ -1,0 +1,20 @@
+
+    [
+        {
+            "id":1,
+            "name":"With immediate family"
+        },
+        {
+            "id":2,
+            "name":"With extended Family"
+        },
+        {
+            "id":3,
+            "name":"By myself"
+        },
+        {
+            "id":4,
+            "name":"With roomate/s"
+        }
+        ]
+        

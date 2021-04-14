@@ -1,0 +1,33 @@
+@import '../../../../assets/scss/variables.scss';
+.signup-container{
+    padding: 28px 20px;
+    box-sizing: border-box;
+    height: 100%;
+    .heading{
+        margin-bottom: 18px;
+    }
+    .subheading{
+        margin-bottom: 24px;
+    }
+    .input__text--wrapper{
+        width: 100%;
+    }
+    .gnerateOTP{
+        margin-top: 18px;
+        margin-bottom: 32px;
+        display: block;
+    }
+    .ternary{
+        text-align: center;
+        span{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+.push-bottom{
+    margin-bottom: 10px !important;
+   
+}

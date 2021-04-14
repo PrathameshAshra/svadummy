@@ -1,0 +1,30 @@
+<!-- <div class="sva-input">
+  <mat-form-field 
+  
+  appearance="outline">
+  <mat-label>{{config?.attributes?.label}}</mat-label>
+  
+  <ng-container >
+    <input 
+    [readonly]="config?.attributes?.readonly" 
+    matInput [pattern]="config?.attributes?.pattern"
+    [type]="config?.attributes?.type || 'text'" 
+    [placeholder]="config?.attributes?.placeholder"
+    [required]="config?.attributes?.isMandatory && !config?.attributes?.readonly"
+    [disabled]="config?.attributes?.disable" 
+    [(ngModel)]="dataModel[config?.fieldKey]" 
+    (input)="onChange()"
+    (change)="onChange()" 
+    (blur)="onTouchedFn()" 
+    >
+</ng-container>
+</mat-form-field>
+</div> -->
+
+
+<mat-form-field appearance="fill"
+>
+  <mat-label>{{label}}</mat-label>
+  <input matInput placeholder="Placeholder" [(ngModel)]="DataModel">
+  <!-- <mat-hint>Hint</mat-hint> -->
+</mat-form-field>
