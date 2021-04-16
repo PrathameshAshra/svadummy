@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 import { Injectable, Injector } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { localStorageService } from '../shared/services/localstorage.service';
+import { LocalService } from '../shared/services/localstorage.service';
 
 @Injectable()
   export class AuthInterceptor implements HttpInterceptor {
     constructor(
       private injector: Injector,
       private router: Router,
-      private localStoreService: localStorageService
+      private localStoreService: LocalService
     ) {}
 
     intercept(

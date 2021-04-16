@@ -1,0 +1,38 @@
+<div class="signup-container">
+<p class="H2 heading">Signup!</p>
+<p class="B1 subheading">This is exciting. Let's get you started.</p>
+<form  [formGroup]="mobileForm" (ngSubmit)="onSubmit()">
+<mat-form-field class="sva-primary-input input__text--wrapper" appearance="fill" 
+[ngClass]="{'push-bottom': mobileForm.controls['firstName'].hasError('required') &&  (mobileForm.controls['firstName'].dirty || mobileForm.controls['firstName'].touched)}" >
+    <mat-label class="B1">First Name</mat-label>
+    <input formControlName=firstName type="text" matInput >
+    <mat-error *ngIf="mobileForm.controls['firstName'].hasError('required')">First Name is required</mat-error>
+  </mat-form-field>
+<mat-form-field class="sva-primary-input input__text--wrapper" appearance="fill"
+[ngClass]="{'push-bottom': mobileForm.controls['lastName'].hasError('required') &&  (mobileForm.controls['lastName'].dirty || mobileForm.controls['lastName'].touched)}" >
+    <mat-label class="B1">Last Name</mat-label>
+    <input formControlName=lastName type="text" matInput >
+    <mat-error *ngIf="mobileForm.controls['lastName'].hasError('required')">Last Name is required</mat-error>
+
+  </mat-form-field>
+<mat-form-field class="sva-primary-input input__text--wrapper" appearance="fill"
+[ngClass]="{'push-bottom': (mobileForm.controls['mobile'].hasError('required') || mobileForm.controls['mobile'].hasError('pattern') )&&  (mobileForm.controls['mobile'].dirty || mobileForm.controls['mobile'].touched)}" >
+    <mat-label class="B1">Phone Number</mat-label>
+    <input  formControlName=mobile type="text" matInput >
+    <mat-error *ngIf="mobileForm.controls['mobile'].hasError('required')">Number is required</mat-error>
+    <mat-error *ngIf="mobileForm.controls['mobile'].hasError('pattern')">Invalid contact number</mat-error>
+
+  </mat-form-field>
+<mat-form-field class="sva-primary-input input__text--wrapper" appearance="fill"
+[ngClass]="{'push-bottom': mobileForm.controls['email'].hasError('email') &&  (mobileForm.controls['email'].dirty || mobileForm.controls['email'].touched)}" >
+
+    <mat-label class="B1">Email</mat-label>
+    <input formControlName=email type="text" matInput >
+    <mat-error *ngIf="mobileForm.controls['email'].hasError('email')">Invalid Email Format</mat-error>
+  </mat-form-field>
+<sva-button [disabled]="!mobileForm.valid" class='sva-primary-button gnerateOTP'>Continue</sva-button>
+</form>
+
+
+<p class="C1 ternary">Already have an account? <span class="CTA__signup"routerLink='/login' >Login</span></p>
+</div>

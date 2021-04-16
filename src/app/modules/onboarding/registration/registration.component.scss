@@ -1,0 +1,30 @@
+@import '../../../../assets/scss/carousel.scss';
+.registration__wrapper{
+  width: 100%;
+  height: 100%;
+  .screen-2{
+    margin: 28px 20px;
+
+  }
+  .screen-4{
+    margin: 28px 20px;
+
+  }
+.screen-3{
+  margin: 28px 20px;
+  .hero__row{
+    span{
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+}
+}
+ 
+
+
+
+// List
+  .full-selection-section{
+    flex-direction: column;
+  }

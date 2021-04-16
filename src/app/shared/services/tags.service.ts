@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ApiConfig } from '../../config/app,config';
-import { IUser } from '../model/user.model';
+import { ApiConfig } from 'src/app/config/api.config';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,10 @@ constructor(
 
 getAllTags(): Observable<any> {
     return this.http.get<any>(this.apiUrl + 'tags');
+}
+getAllDummyTags(): Observable<any> {
+    return this.http.get('./assets/ListOftags.json');
+}
+
 
 }
-}
-

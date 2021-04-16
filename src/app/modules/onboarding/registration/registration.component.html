@@ -1,0 +1,108 @@
+<div class="registration__wrapper">
+
+  <owl-carousel-o [options]="customOptions" >
+     
+    <ng-template class="carousel" carouselSlide>
+      <div class="slide screen-2">
+        <div class="hero__row">
+          <div class="imagePlaceHolder">
+          </div>
+          <div class="heading__row">
+            <h1 class="h2">Covid 19</h1>
+          </div>
+          <div class="caption__row">
+            <span class="B2">Simple screening tool. Screen yourself and 
+              your family, friends and colleagues. Create 
+              groups of people you engage with and gain 
+              visibility on their risk status.</span>
+          </div>
+          <div class="cta__row">
+            <sva-button [role]='"primary"' >Continue</sva-button>
+  
+          </div>
+        </div>
+  
+      </div>
+    </ng-template>
+    <ng-template  class="carousel" carouselSlide>
+      <div class="slide screen-3">
+        <div class="hero__row">
+          <span class="H2">Gender</span>
+          <p class="B1">Select your gender</p>
+        </div>
+        <div class="body__row">
+          <sva-radiobutton (selectedValue)="selectedGender($event)" [radioButtonArray]='listOfGender'></sva-radiobutton>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template  class="carousel" carouselSlide>
+      <div class="slide screen-3">
+        <div class="hero__row">
+          <h1>I Live</h1>
+          <p>This may form, or be a part of your support 
+            system</p>
+        </div>
+        <div class="body__row">
+          <sva-radiobutton (selectedValue)="selectedLive($event)" [radioButtonArray]='lifeOfLife'></sva-radiobutton>
+
+        </div>
+  
+      </div>
+    </ng-template>
+
+  
+    <ng-template carouselSlide>
+      <div class="slide screen-3">
+        <div class="hero__row">
+          <h1>What are your hobbies?</h1>
+          <p>Please select from the options below or add 
+            your own..</p>
+        </div>
+        <div class="body__row">
+          <section >
+            <app-sva-list-checkbox 
+            [SplitView]= true
+
+            [positioning]='positioning'
+            [listOfCheckbox]='ListOfHobbies'
+            (selectedItems)='selectedHobby'></app-sva-list-checkbox>
+
+            
+
+          </section>
+          
+        </div>
+  
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide screen-4">
+        <div class="hero__row">
+          <h1>WH2 What would you like to 
+            work on??</h1>
+          <p>Please select from the options below or add 
+            your own..</p>
+        </div>
+        <div class="body__row">
+          <section  >
+            <app-sva-list-checkbox 
+            [SplitView]= false
+            [positioning]='positioning'
+            [listOfCheckbox]='listOfTags'
+            (selectedItems)='selectedTags'></app-sva-list-checkbox>
+
+           
+            </section>
+          
+        </div>
+  
+      </div>
+    </ng-template>
+
+
+
+  </owl-carousel-o>
+  
+
+
+</div>

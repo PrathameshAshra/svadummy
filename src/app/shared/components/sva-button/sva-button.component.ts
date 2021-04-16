@@ -1,6 +1,5 @@
-import { TemplateRef, ViewChild } from '@angular/core';
-import { EventEmitter, Output } from '@angular/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'sva-button',
@@ -15,10 +14,7 @@ export class SvaButtonComponent implements OnInit {
   @Input() role: string; // primary, secondary, tertiary.
   @Input() icon: string;
 
-  // tslint:disable-next-line: no-output-on-prefix
-  @Output() onClick: EventEmitter<any> = new EventEmitter();
-  // tslint:disable-next-line: no-output-on-prefix
-  @Output() onActionClick: EventEmitter<any> = new EventEmitter();
+  @Output() Click: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
      // Initialize Default Properties
@@ -28,17 +24,10 @@ export class SvaButtonComponent implements OnInit {
      this.icon = '';
    }
 
-   clickBtn(button: any) {
-    this.onClick.emit(button);
+   clickBtn(button: any): void{
+    this.Click.emit(button);
   }
-
-  actionClick(button: any) {
-      this.onActionClick.emit(button);
-  }
-  test() {
-    console.log('enter');
-  }
-
-  ngOnInit() {
+  ngOnInit(): void{
+    console.log(this.role);
   }
 }

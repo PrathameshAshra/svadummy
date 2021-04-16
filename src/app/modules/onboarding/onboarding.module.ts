@@ -1,44 +1,45 @@
-import { LoginComponent } from './views/login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SVAInputModule } from './../../shared/components/sva-input/package.module';
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { OnboardingComponent } from './onboarding.component';
-import { OnboardingRoutes } from './onboarding.routing';
-import { SpashComponent } from './views/spash/spash.component';
-import { SwiperModule } from 'swiper/angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SplashComponent } from './splash/splash.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { SignupComponent } from './views/signup/signup.component';
-import { PhoneLoginComponent } from './views/phone-number/phone-number.component';
-import { FollowupLoginComponent } from './views/followup-login/followup-login.component';
-import { SVAsaperatorModule } from 'src/app/shared/components/sva-saperator/package.module';
-
-import { MatRadioModule } from '@angular/material/radio';
-import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import { MatListModule } from '@angular/material/list';
 import { SVAButtonModule } from 'src/app/shared/components/sva-button/package.module';
+import { MaterialModule } from 'src/app/shared/shared-modules/material-module';
+import { SignUpLoginComponent } from './signup/signup.component';
+import { VerificationComponent } from './verification/verification.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { RegistrationComponent } from './registration/registration.component';
+import { SVAListCheckboxModule } from 'src/app/shared/components/sva-list-checkbox/package.module';
+import { SVARadioButtonModule } from 'src/app/shared/components/sva-radiobutton/package.module';
+
+
 
 @NgModule({
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CarouselModule,
-    CommonModule,
-    HttpClientModule,
-    OnboardingRoutes,
-    SVAButtonModule,
-    SVAsaperatorModule,
-  ],
-  declarations: [
-    OnboardingComponent,
-    SpashComponent,
-    LoginComponent,
-    SignupComponent,
-    PhoneLoginComponent,
-    FollowupLoginComponent,
-  ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        CarouselModule,
+        SVAButtonModule,
+        MaterialModule,
+        SVAListCheckboxModule,
+        SVARadioButtonModule,
+        NgOtpInputModule,
+        RouterModule.forChild([
+            {path: '', redirectTo: '/splash', pathMatch: 'full'},
+            {path: 'splash', component: SplashComponent},
+            {path: 'login', component: LoginComponent},
+            {path: 'signup', component: SignUpLoginComponent},
+            {path: 'verification/:id', component: VerificationComponent},
+            {path: 'followup', component: RegistrationComponent},
+        ])
+    ],
+    declarations: [ SplashComponent , LoginComponent, SignUpLoginComponent, VerificationComponent , RegistrationComponent]
 })
-export class OnboardingModule {}
+
+export class OnboardingModule {
+    constructor(){ }
+ }

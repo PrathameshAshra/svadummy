@@ -4,36 +4,35 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-// tslint:disable-next-line: class-name
-export class localStorageService {
+export class LocalService {
   private data = new BehaviorSubject('');
   currentData = this.data.asObservable();
 
-  constructor() { }
+constructor() { }
 
-  setToken(token: string): void {
-    localStorage.setItem('sva_T', token);
-  }
-  setUserId(userId: string): void {
-    localStorage.setItem('sva_U', userId);
+setToken(token: string): void{
+localStorage.setItem('sva_T', token);
+}
+setUserId(userId: string): void{
+localStorage.setItem('sva_U', userId);
 
-  }
-  setContact(contact: string): void {
-    localStorage.setItem('sva_C', contact);
-  }
+}
+setContact(contact: string): void{
+localStorage.setItem('sva_C', contact);
+}
 
-  getToken(): any {
+getToken(): any{
     return localStorage.getItem('sva_T');
-  }
-  getUser(): any {
+}
+getUser(): any{
     return localStorage.getItem('sva_U');
-  }
-  getContact(): any {
+}
+getContact(): any{
     return localStorage.getItem('sva_C');
-  }
-  clearAll(): void {
-    localStorage.clear();
-  }
+}
+clearAll(): void{
+localStorage.clear();
+}
 
 
 }

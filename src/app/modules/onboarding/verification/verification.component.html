@@ -1,0 +1,12 @@
+
+<div class="verification__container">
+  <p class="H2 heading">OTP Verification</p>
+  <p class="B1 subheading">We’ve sent a verification code to -
+    <br>
+    <span class="number"> +91 {{mobileNumber}}.</span>
+  <span class="edit">Edit</span></p>
+  <ng-otp-input  class="sva__OTP__input"  #ngOtpInput (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
+  <span class="B3 countDown"> {{secondsLeft}} seconds left</span>
+  <sva-button class="verify__button "(click)='verifyLoginCode()' [role]='"primary"' >Submit</sva-button>
+  <p class="C1 subheading text-align-center">Didn't recieve otp
+    <span class="resend" (click)='generateOTP()'> Resend Code.</span>

@@ -1,0 +1,21 @@
+<div class="login-container">
+<p class="H2 heading">Login</p>
+<p class="B1 subheading">Login using your existing account.</p>
+<form  [formGroup]="loginForm" (ngSubmit)="generateOTP()">
+  <mat-form-field class="sva-primary-input mobileNumber__container" appearance="fill">
+    <mat-label  class="B1">Enter Phone Number</mat-label>
+    <input pattern="^((\\+91-?)|0)?[0-9]{10}$" formControlName='mobile' type="tel" matInput >
+    <mat-error *ngIf="loginForm.controls['mobile'].hasError('required')">Number is required</mat-error>
+    <mat-error *ngIf="loginForm.controls['mobile'].hasError('pattern')">Invalid contact number</mat-error>
+
+  </mat-form-field>
+<sva-button 
+[disabled] ='!loginForm.valid' class='sva-primary-button generateOTP'
+ type='submit'>
+ Generate 
+</sva-button>
+
+</form>
+
+<p class="C1 ternary">Already have an account? <span class="CTA__signup"routerLink='/signup'>Sign up</span></p>
+</div>

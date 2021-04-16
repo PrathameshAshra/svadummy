@@ -4,23 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import { AuthInterceptor } from './config/http_interceptor';
+import { EmptyComponent } from './core/layout/empty-layout/empty..component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './core/layout/auth-layout/auth..component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmptyComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-
+    HttpClientModule
   ],
-  providers: [  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,25 +1,16 @@
-<!-- <ng-template #simpleBtn>
-  <button 
-  [type]="type"
-  (click)="clickBtn($event)"
-  [disabled]="disabled"
-  matRipple
-  color="primary"
-  class="rm-btn" [ngClass]="
-  {
-      'primary': (role == 'primary'),
-      'secondary': (role == 'secondary'),
-      'tertiary': (role == 'tertiary'),
-      'customColor': (role == 'custom')
-  }">
-
-    <span [ngClass]="{'btnValue' : icon != null}">
-      <ng-container *ngTemplateOutlet="simpleBtn"> </ng-container>
-
-    </span>
-  </button>
-</ng-template> -->
-<ng-template #simpleBtn>
-
+<ng-template #Ref>
+  <ng-content> </ng-content>
 </ng-template>
-<ng-container *ngTemplateOutlet="simpleBtn"> </ng-container>
+
+<button mat-flat-button (click)='clickBtn($event)'
+[disabled] = 'disabled'
+[ngClass]=" {
+  'primary': (role === 'primary'),
+  'secondary': (role === 'secondary'),
+  'tertiary': (role === 'tertiary')
+}"
+>
+  <ng-container *ngTemplateOutlet='Ref'>
+
+  </ng-container>
+</button>

@@ -1,0 +1,16 @@
+
+    [
+        {
+        "id":1,
+        "name":"Khokho"
+    },
+    {
+        "id":2,
+        "name":"kabatti"
+    },
+    {
+        "id":3,
+        "name":"django"
+    }
+    
+    ]

@@ -1,6 +1,5 @@
-import { TemplateRef, ViewChild } from '@angular/core';
-import { EventEmitter, Output } from '@angular/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ITextConfig } from './sva-input.model';
 
 @Component({
   selector: 'sva-input',
@@ -8,8 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./sva-input.component.scss']
 })
 export class SvaInputComponent implements OnInit {
+  @Input()
+  label!: string;
+  @Output() DataModel: EventEmitter<any> = new EventEmitter();
 
+  constructor() {
 
-  ngOnInit() {
+  }
+  ngOnInit(): void{
   }
 }

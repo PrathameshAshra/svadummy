@@ -1,0 +1,63 @@
+@import './variables.scss';
+@import '~@angular/material/theming';
+
+$mat-sva-p: (
+  50: #FFEBEB,
+  100: #FFD7D7,
+  200: #FEC2C2,
+  300: #FEAEAE,
+  400: #FE9A9A,
+  500: #FE7C7B,
+  600: #FE7272,
+  700: #FD5D5D,
+  800: #FD4949,
+  900: #FD3535,
+  A100: #FFF1E8,
+  A200: #FE7C7B,
+  A300: #ff1744,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$mat-sva-a: (
+  50: #DCF0F9,
+  100: #BAE1F3,
+  200: #97D2ED,
+  300: #74C2E7,
+  400: #52B3E0,
+  500: #2AA2DA,
+  600: #228DBF,
+  700: #1C739C,
+  800: #155A79,
+  900: #0F4057,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$sva-dashboard-background:#FFF5EB;
