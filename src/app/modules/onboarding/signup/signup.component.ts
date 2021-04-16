@@ -14,8 +14,8 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class SignUpLoginComponent implements OnInit {
   UserModel: IUser = new IUser();
   sub: any;
-  mobileForm: FormGroup
-  mobNumberPattern = '^((\\+91-?)|0)?[0-9]{10}$';  
+  mobileForm: FormGroup;
+  mobNumberPattern = '^((\\+91-?)|0)?[0-9]{10}$';
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class SignUpLoginComponent implements OnInit {
     this.userService.createUser(this.UserModel).subscribe({
       next: (result: any) => {
       console.log(result);
-      if (result.status === 'error' && result.message === "User is already registered"){
+      if (result.status === 'error' && result.message === 'User is already registered'){
         this.router.navigate(['/verification/' + this.UserModel.contact_number ]);
 
       }else{
@@ -54,7 +54,7 @@ export class SignUpLoginComponent implements OnInit {
     });
     }
   ngOnInit(): void{
-    console.log(this.mobileForm.controls['firstName'].dirty)
+    console.log(this.mobileForm.controls.firstName.dirty);
   }
 
 }

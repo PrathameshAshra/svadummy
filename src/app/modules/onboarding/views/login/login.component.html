@@ -1,0 +1,39 @@
+<div class="container-fluid">
+<div class="row header__row">
+  <span class="H2 d-block">Login</span>
+  <p  class="B1  d-block">Login using your existing account</p>
+  
+</div>
+<div class="row body__row">
+<<<<<<< HEAD
+  <!-- <mat-form-field class="sva-primary-input-field w-100"  appearance="fill">
+    <mat-label>Enter Phone Number</mat-label>
+    <input class="B1" matInput type="tel"  [(ngModel)]='phoneNumber'>
+  </mat-form-field> -->
+  <sva-button></sva-button>
+  <!-- <button (click)="generateOTP()" [disabled] ='phoneNumber.length < 10' mat-flat-button class="sva-primary-btn"color="primary">Generate OTP</button> -->
+=======
+  <mat-form-field class="sva-primary-input-field w-100"  appearance="fill">
+    <mat-label>Enter Phone Number</mat-label>
+    <input class="B1" matInput type="tel"  [(ngModel)]='phoneNumber'>
+  </mat-form-field>
+
+  <button (click)="generateOTP()" [disabled] ='phoneNumber.length < 10' mat-flat-button class="sva-primary-btn"color="primary">Generate OTP</button>
+>>>>>>> d7e003eb504ac7aedfa10bd15219e3405276f85f
+
+  <app-sva-saperator [SvaSaperatorConfig]=SvaSaperatorConfig></app-sva-saperator>
+
+  <button mat-flat-button  class="sva-secondary-btn" [routerLink]="['/unauth/verification','mobile']" >
+  <img src="../../../../../assets/svg/mobile_icon.svg" alt="">
+    Signup with Mobile Number</button> 
+
+  <button mat-flat-button class="sva-secondary-btn"   (click)='loginWithGoogle()' >
+    <img src="../../../../../assets/svg/google_icon.svg" alt="">
+    Sign in with Google</button>
+  <button mat-flat-button class="sva-secondary-btn"  >
+    <img src="../../../../../assets/svg/facebook_icon.svg" alt="">
+    Sign in with Facebook</button>
+<p>By signing up, you agree to our <span>Privacy Policy</span></p>
+</div>
+
+</div>

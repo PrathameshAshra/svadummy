@@ -14,12 +14,12 @@ export class SplashComponent implements OnInit {
   onChangeCard(ev: any): any{
     console.log(ev);
 
-    if(ev.startPosition === 4){
+    if (ev.startPosition === 4){
 
-      this.customOptions.nav = false
-      this.customOptions.dots = false
+      this.customOptions.nav = false;
+      this.customOptions.dots = false;
 
-      console.log(this.customOptions)
+      console.log(this.customOptions);
     }
     this.CurrentPage = 'url(\'./../../../../assets/svg/landing-' + ev.startPosition + '.svg' ;
     // this.CurrentPage = 'url('./../../../../assets/svg/landing-4.svg');' + ev.startPosition;

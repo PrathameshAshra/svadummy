@@ -1,0 +1,52 @@
+
+
+.top__row{
+p{margin-bottom: 0px;}
+    padding-top:28px;
+    padding-bottom: 17px;
+}
+.track__row{
+    p{margin-bottom: 0px;}
+    .trackContainer{
+        width: 100%;
+        height: 170px;
+        background-color: white;
+        display: block;
+        border-radius: 5px;
+        margin-top: 8px;
+    }
+}
+.vital__row{
+    margin-top:24px;
+    p{margin-bottom: 0px;}
+    .vitalContainer{
+        width: 100%;
+        height: 170px;
+        background-color: white;
+        display: block;
+        border-radius: 5px;
+        margin-top: 8px;
+    }
+}
+.covid__row{
+    margin-top:24px;
+    p{margin-bottom: 0px;}
+    .covidContainer{
+        width: 100%;
+        padding:12px;
+        background-color: white;
+        display: block;
+        border-radius: 5px;
+        margin-top: 8px;
+        .cta__row{
+            .repeat__screening{
+                display: inline-block;
+                margin-left: 16px;
+                font-size: 12px;
+                color:#333333;
+            }
+        
+        }
+    }
+}
+

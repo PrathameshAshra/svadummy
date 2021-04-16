@@ -8,6 +8,7 @@ import { SvaCheckboxListModel, SvaCheckboxModel } from './sva-list-checkbox.mode
   styleUrls: ['./sva-list-checkbox.component.scss']
 })
 export class SvaListCheckboxComponent implements OnInit {
+ @Input() SplitView?: boolean;
  @Input() positioning!: MatListOptionCheckboxPosition;
  @Input() listOfCheckbox!: Array<SvaCheckboxModel> ;
  @Output() selectedItems = new EventEmitter<any>();
@@ -18,6 +19,7 @@ export class SvaListCheckboxComponent implements OnInit {
     console.log(this.selectedItems = event);
   }
   ngOnInit(): void {
+    console.log(this.SplitView)
   }
 
 }

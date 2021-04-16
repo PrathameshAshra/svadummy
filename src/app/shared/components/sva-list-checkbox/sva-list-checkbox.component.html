@@ -1,8 +1,10 @@
 
-<mat-selection-list #list class="half-width-selection"
- [(ngModel)]="SelectedData"
+<mat-selection-list #list 
+[ngClass]="{'half-width-selection': SplitView, 'full-selection-section': !SplitView}"
+
+[(ngModel)]="SelectedData"
  (ngModelChange)="onNgModelChange($event)">
-  <mat-list-option [checkboxPosition]='positioning' 
+  <mat-list-option [checkboxPosition]='positioning'  
   *ngFor="let check of listOfCheckbox"
    [value]='check.data'>
     {{check.data}}

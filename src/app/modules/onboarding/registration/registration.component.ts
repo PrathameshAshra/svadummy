@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { LifeService } from './../../../shared/services/life.service';
 import { GenderService } from './../../../shared/services/gender.service';
 import { HobbyService } from './../../../shared/services/hobby.service';
@@ -10,14 +11,17 @@ import { DataTransportObj } from 'src/app/shared/models/sva.model';
 import { TagsModel } from 'src/app/shared/models/tag.model';
 import { TagsService } from 'src/app/shared/services/tags.service';
 import { UserService } from 'src/app/shared/services/user.service';
-import { SvaCheckboxListModel, SvaCheckboxModel } from 'src/app/shared/components/sva-list-checkbox/sva-list-checkbox.model';
+import {
+  SvaCheckboxListModel,
+  SvaCheckboxModel,
+} from 'src/app/shared/components/sva-list-checkbox/sva-list-checkbox.model';
 import { MatListOptionCheckboxPosition } from '@angular/material/list';
 import { CarouselConfig } from 'src/app/config/carousel.config';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
   positioning: MatListOptionCheckboxPosition = 'before';
@@ -28,7 +32,7 @@ export class RegistrationComponent implements OnInit {
   hobbieState: any;
   ListOfHobbies: Array<SvaCheckboxModel> = [];
   currentPosition = 0;
-customOptions: OwlOptions = CarouselConfig;
+  customOptions: OwlOptions = CarouselConfig;
 
   listOfTags: Array<any> = [];
   selectedTags: any;
@@ -45,52 +49,44 @@ customOptions: OwlOptions = CarouselConfig;
     private userService: UserService,
     private hobbyService: HobbyService,
     private genderService: GenderService,
-    private lifeService: LifeService,
-  ) {
+    private lifeService: LifeService
+  ) {}
 
-}
-
-getAllHobby = () => {
-  // tslint:disable-next-line: deprecation
-  this.hobbyService.getDummyHobby().subscribe(data => {
-    data.map((x: any) => {
-      x.isChecked = false;
-      x.data = x.name;
-    });
-    this.ListOfHobbies = data;
-    console.log(data);
-  });
-}
-getAllGender = () => {
-  this.genderService.getDummyGender().subscribe(data => {
-    data.map((x: any) => {
-      x.isChecked = false;
-      x.data = x.name;
-    });
-    this.listOfGender = data;
-    console.log(data);
-  });
-}
-
-rajat(): void{
-this.genderService.getDummyGender().subscribe((data: any) => {
-  console.log(data);
-});
-}
-getAllLife = () => {
-  // tslint:disable-next-line: deprecation
-  this.lifeService.getDummyLife().subscribe(data => {
-    this.lifeOfLife = data;
-
-    data.map((x: any) => {
-      x.isChecked = false;
-      x.data = x.name;
-    });
-    console.log(data);
-  });
-}
-getAllTags = () => {
+  getAllHobby = () => {
     // tslint:disable-next-line: deprecation
+    this.hobbyService.getDummyHobby().subscribe((data) => {
+      data.map((x: any) => {
+        x.isChecked = false;
+        x.data = x.name;
+      });
+      this.ListOfHobbies = data;
+      console.log(data);
+    });
+  }
+  getAllGender = () => {
+    this.genderService.getDummyGender().subscribe(data => {
+      data.map((x: any) => {
+        x.isChecked = false;
+        x.data = x.name;
+      });
+      this.listOfGender = data;
+      console.log(data);
+    });
+  }
+
+
+  getAllLife = () => {
+    this.lifeService.getDummyLife().subscribe((data) => {
+      this.lifeOfLife = data;
+
+      data.map((x: any) => {
+        x.isChecked = false;
+        x.data = x.name;
+      });
+      console.log(data);
+    });
+  }
+  getAllTags = () => {
     this.tagsService.getAllDummyTags().subscribe({
       next: (data: any) => {
         data.map((x: any) => {
@@ -98,7 +94,7 @@ getAllTags = () => {
           x.data = x.name;
         });
         this.listOfTags = data;
-      }
+      },
     });
   }
 
@@ -107,15 +103,15 @@ getAllTags = () => {
     this.getAllHobby();
     this.getAllGender();
     this.getAllLife();
-}
-selectedGender(ev: any): void{
-  console.log(ev);
-}
+  }
+  selectedGender(ev: any): void {
+    console.log(ev);
+  }
 
-selectedLive(ev: any): void{
-  console.log(ev);
-}
-  onboardingFinish(): void{
+  selectedLive(ev: any): void {
+    console.log(ev);
+  }
+  onboardingFinish(): void {
     console.log('Update user on this function ');
     const userObj = JSON.parse(this.localService.getUser());
     userObj.gender = this.formGroup.value.gender;
@@ -125,19 +121,10 @@ selectedLive(ev: any): void{
 
     // tslint:disable-next-line: deprecation
     this.userService.updateUser(userObj, userObj.id).subscribe({
-      next: (data: any ) => {
+      next: (data: any) => {
         console.log(data);
         this.router.navigate(['app']);
-      }
-    },
-    );
+      },
+    });
   }
-
-
 }
-
-
-function selectedLive(ev: any, any: any) {
-  throw new Error('Function not implemented.');
-}
-

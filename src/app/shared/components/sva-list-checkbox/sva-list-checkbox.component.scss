@@ -1,0 +1,43 @@
+.full-selection-section{
+    flex-direction: column;
+  }
+  
+ mat-pseudo-checkbox {
+    color: #f00404;
+}
+  ::ng-deep .half-width-selection mat-list-option{
+    width: 48% !important;
+    border-radius: 5px;
+    height: min-content;
+  }
+  ::ng-deep .full-selection-section mat-list-option{
+    width: 100% !important;
+    flex-direction: column;
+    border-radius: 5px;
+    height: min-content;
+  }
+    mat-selection-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .mat-list-option[aria-selected="true"] {
+    background: #FFEBEB;
+  }
+  mat-list-option{
+    // width: 48% !important;
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    font-size: 14px;;
+  }
+  ::ng-deep .mat-list-item-content{
+    border: 1px solid #FE7C7B !important;
+    border-radius: 8px;
+
+    
+  }
+  ::ng-deep  .mat-pseudo-checkbox-checked{
+    background: #FE7C7B !important;
+  }
